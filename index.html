@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -15,25 +15,33 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    background: linear-gradient(135deg,#ffdde1,#ee9ca7);
+    background: linear-gradient(135deg,#ffdde1,#ee9ca7,#fad0c4);
     font-family:'Poppins',sans-serif;
     text-align:center;
+    overflow:hidden;
 }
 
-/* Lock Screen */
-.lock-screen{
+.lock-screen, .container{
     background:white;
     padding:40px;
     border-radius:20px;
     box-shadow:0 15px 35px rgba(0,0,0,0.2);
     width:90%;
-    max-width:400px;
+    max-width:420px;
+    animation:fadeIn 1s ease-in-out;
 }
 
-.lock-screen h1{
+.lock-screen h1,
+.container h1{
     font-family:'Great Vibes',cursive;
-    font-size:38px;
+    font-size:42px;
     color:#e84393;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    font-size:15px;
+    color:#636e72;
 }
 
 input{
@@ -62,28 +70,6 @@ button:hover{
     transform:scale(1.1);
 }
 
-#error{
-    color:red;
-    margin-top:10px;
-}
-
-/* Main Content */
-.container{
-    display:none;
-    background:white;
-    padding:40px;
-    border-radius:20px;
-    box-shadow:0 15px 35px rgba(0,0,0,0.2);
-    max-width:400px;
-    width:90%;
-}
-
-.container h1{
-    font-family:'Great Vibes',cursive;
-    font-size:40px;
-    color:#e84393;
-}
-
 .option-btn{
     margin:10px;
 }
@@ -93,9 +79,24 @@ button:hover{
 
 #response{
     margin-top:20px;
-    font-size:18px;
-    font-weight:600;
+    font-size:17px;
+    font-weight:500;
     color:#2d3436;
+    line-height:1.6;
+}
+
+#error{
+    color:red;
+    margin-top:10px;
+}
+
+.container{
+    display:none;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:scale(0.9);}
+    to{opacity:1; transform:scale(1);}
 }
 </style>
 </head>
@@ -105,7 +106,7 @@ button:hover{
 <!-- LOCK SCREEN -->
 <div class="lock-screen" id="lockScreen">
     <h1>For Angel 🔒</h1>
-    <p>Enter the password</p>
+    <p class="subtitle">Only someone very special can enter</p>
     <input type="password" id="password" placeholder="Enter password">
     <br>
     <button onclick="checkPassword()">Unlock</button>
@@ -115,7 +116,18 @@ button:hover{
 <!-- MAIN CONTENT -->
 <div class="container" id="mainContent">
     <h1>Angel 💛</h1>
-    <p>Are you okay Angel?</p>
+    <p class="subtitle">You are not just important… you are irreplaceable.</p>
+
+    <p>
+        Before you answer anything, I need you to know something.
+        You are not just “someone” in my life.
+        You are the calm when my mind is loud.
+        You are the soft place I land when life feels heavy.
+        You are the person I choose — not because I have to,
+        but because I want to.
+    </p>
+
+    <p>Are you okay, my Angel?</p>
 
     <button class="option-btn yes" onclick="yesClick()">Yes</button>
     <button class="option-btn no" onclick="noClick()">No</button>
@@ -134,16 +146,22 @@ function checkPassword(){
     }
 }
 
+document.getElementById("password").addEventListener("keypress", function(event){
+    if(event.key === "Enter"){
+        checkPassword();
+    }
+});
+
 function yesClick(){
     document.getElementById("response").innerHTML =
-    "If you are not okay, I am here for you. Even if you say you're okay, I will always stand here for you Angel 💛";
+    "Even if you say you're okay, I will still check on you. Because you matter to me more than you understand. Your feelings matter. Your heart matters. You matter. Not just today. Always.";
 }
 
 function noClick(){
     document.getElementById("response").innerHTML =
-    "Please talk to me. I am here to help you. You don't have to go through anything alone Angel 💛";
+    "Then let me be your safe place. You don’t have to carry everything alone. I am here, not because I feel forced to be… but because you are worth standing beside. Always.";
 }
 </script>
 
 </body>
-</html> 
+</html>
