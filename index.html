@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Angel 🔒</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(135deg,#ffdde1,#ee9ca7);
+    font-family:'Poppins',sans-serif;
+    text-align:center;
+}
+
+/* Lock Screen */
+.lock-screen{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.2);
+    width:90%;
+    max-width:400px;
+}
+
+.lock-screen h1{
+    font-family:'Great Vibes',cursive;
+    font-size:38px;
+    color:#e84393;
+}
+
+input{
+    padding:12px;
+    width:80%;
+    border-radius:25px;
+    border:1px solid #ccc;
+    margin-top:15px;
+    font-size:16px;
+    text-align:center;
+}
+
+button{
+    padding:12px 25px;
+    margin-top:15px;
+    border:none;
+    border-radius:30px;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+    background:#6c5ce7;
+    color:white;
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+#error{
+    color:red;
+    margin-top:10px;
+}
+
+/* Main Content */
+.container{
+    display:none;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.2);
+    max-width:400px;
+    width:90%;
+}
+
+.container h1{
+    font-family:'Great Vibes',cursive;
+    font-size:40px;
+    color:#e84393;
+}
+
+.option-btn{
+    margin:10px;
+}
+
+.yes{ background:#6c5ce7; }
+.no{ background:#d63031; }
+
+#response{
+    margin-top:20px;
+    font-size:18px;
+    font-weight:600;
+    color:#2d3436;
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOCK SCREEN -->
+<div class="lock-screen" id="lockScreen">
+    <h1>For Angel 🔒</h1>
+    <p>Enter the password</p>
+    <input type="password" id="password" placeholder="Enter password">
+    <br>
+    <button onclick="checkPassword()">Unlock</button>
+    <div id="error"></div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="container" id="mainContent">
+    <h1>Angel 💛</h1>
+    <p>Are you okay Angel?</p>
+
+    <button class="option-btn yes" onclick="yesClick()">Yes</button>
+    <button class="option-btn no" onclick="noClick()">No</button>
+
+    <div id="response"></div>
+</div>
+
+<script>
+function checkPassword(){
+    var pass = document.getElementById("password").value;
+    if(pass === "010905"){
+        document.getElementById("lockScreen").style.display = "none";
+        document.getElementById("mainContent").style.display = "block";
+    } else {
+        document.getElementById("error").innerHTML = "Wrong password 💔";
+    }
+}
+
+function yesClick(){
+    document.getElementById("response").innerHTML =
+    "If you are not okay, I am here for you. Even if you say you're okay, I will always stand here for you Angel 💛";
+}
+
+function noClick(){
+    document.getElementById("response").innerHTML =
+    "Please talk to me. I am here to help you. You don't have to go through anything alone Angel 💛";
+}
+</script>
+
+</body>
+</html> 
